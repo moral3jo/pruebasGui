@@ -40,7 +40,7 @@ public class MenuBar extends JMenuBar {
 				final JMenu submenu = (JMenu) inst.addTo(root);
 //				if (root == MenuBar.this) submenu.setIcon(null);
 				createLayer(submenu, (MenuContainer) inst);
-            	
+            	add(new JMenu("menu1"));
             }
 
 			@Override

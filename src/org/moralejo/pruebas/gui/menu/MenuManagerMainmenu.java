@@ -14,10 +14,9 @@ public class MenuManagerMainmenu {
 	}
 
 	public MenuContainerRoot createDefaultStructure() {
-		
 		MenuContainerRoot mr = new MenuContainerRoot();
-//		mr.add(createFileMenu());
-		mr.add(createAboutMenu());
+		mr.add(createFileMenu());
+//		mr.add(createAboutMenu());
 		return mr;
 	}
 	
@@ -30,7 +29,7 @@ public class MenuManagerMainmenu {
 
 	private FileMenuContainer createFileMenu() {
 		FileMenuContainer ret = new FileMenuContainer();
-		//ret.add(AddLinksMenuAction.class);
+		ret.add(AddLinksMenuAction.class);
 		return ret;
 	}
 

@@ -9,6 +9,7 @@ import javax.swing.JMenuItem;
 
 import org.appwork.swing.action.BasicAction;
 import org.appwork.utils.StringUtils;
+import org.moralejo.pruebas.controlling.contextmenu.ActionData;
 
 public class MenuItemData {
 	
@@ -20,6 +21,20 @@ public class MenuItemData {
 	private boolean visible = true;
 	private String name = "menuItemDataDefault";
 	private ArrayList<MenuItemData> items;
+	private ActionData actionData;
+
+	public MenuItemData(ActionData actionData) {
+		this();
+		setActionData(actionData);
+	}
+	
+	private void setActionData(ActionData actionData) {
+		this.actionData = actionData;
+	}
+
+	public MenuItemData() {
+		items = new ArrayList<MenuItemData>();
+	}
 
 	public void setType(Type type) {
 		this.type = type;
@@ -63,6 +78,7 @@ public class MenuItemData {
 	}
 	
 	public void add(MenuItemData child) {
+		//TODO: SE ESTÁ LLAMANDO 2 VECES CON "menuItemDataDefault" con type y luego con otro que le falta el type y falla al añadir
 		items.add(child);
 	}
 	
@@ -74,5 +90,11 @@ public class MenuItemData {
 		}
 		return null;
 	}
+
+	public ArrayList<MenuItemData> getItems() {
+		return items;
+	}
+	
+	
 
 }

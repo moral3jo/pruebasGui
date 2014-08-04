@@ -32,7 +32,7 @@ public class JDGui {
 //		AbstractDialog.setDefaultRoot(getMainFrame());
 		this.mainFrame.setVisible(true);
 		this.mainFrame.setTitle("Titulo ventana");
-		this.mainFrame.setName("MAINFRAME");
+//		this.mainFrame.setName("MAINFRAME");
 		
 		this.initDefaults(); //bloquea cierre normal
         this.initComponents();
@@ -63,7 +63,7 @@ public class JDGui {
 	}
 	
 	private void initComponents() {
-		//this.menuBar = MenuBar.getInsatance();
+		this.menuBar = MenuBar.getInsatance();
 		this.mainTabbedPane = MainTabbedPane.getInstance();
 		
 		this.downloadView= new DownloadsView();

@@ -3,10 +3,9 @@ package org.moralejo.pruebas.gui.menu;
 import java.util.ArrayList;
 
 import org.appwork.swing.action.BasicAction;
+import org.moralejo.pruebas.controlling.contextmenu.ActionData;
 
 public class MenuContainer extends MenuItemData {
-	
-	private ArrayList<MenuItemData> items;
 	
 	public MenuContainer() {
 		super();
@@ -14,13 +13,13 @@ public class MenuContainer extends MenuItemData {
 
 	}
 
-	public ArrayList<MenuItemData> getItems() {
-		return items;
+	public void add(Class<? extends BasicAction> class1) {
+		add(new ActionData(class1));
 	}
 	
-	public void add(Class<? extends BasicAction> class1) {
-//		add(new ActionData(class1));
-	}
+	public void add(ActionData actionData) {
+        add(new MenuItemData(actionData));
+    }
 	
 
 }
