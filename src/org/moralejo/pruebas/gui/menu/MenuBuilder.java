@@ -35,6 +35,7 @@ public class MenuBuilder {
 	}
 
 	protected void createLayer(final JComponent root, MenuContainer menuData) {
+		if(root==null) return;
 		logger.info("createLayer MenuBuilder");
 		for (MenuItemData i: menuData.getItems()) {
 			try{
@@ -44,7 +45,7 @@ public class MenuBuilder {
 					addAction(root, inst);
 					break;
 				case CONTAINER:
-//					addContainer(root, inst);
+					addContainer(root, inst);
 					logger.info("contendor de menu. Pdt prog.");
 				}
 				

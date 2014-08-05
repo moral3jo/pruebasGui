@@ -18,4 +18,9 @@ public class ActionData {
         this.clazzName = class1.getName();
     }
 
+	public Class<?> _getClazz() {
+		// TODO Auto-generated method stub
+		return clazz;
+	}
+
 }

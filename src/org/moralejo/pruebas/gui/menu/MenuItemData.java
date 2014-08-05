@@ -1,6 +1,7 @@
 package org.moralejo.pruebas.gui.menu;
 
 import java.awt.event.ActionEvent;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
@@ -10,6 +11,9 @@ import javax.swing.JMenuItem;
 import org.appwork.swing.action.BasicAction;
 import org.appwork.utils.StringUtils;
 import org.moralejo.pruebas.controlling.contextmenu.ActionData;
+import org.moralejo.pruebas.controlling.contextmenu.CustomizableAppAction;
+import org.moralejo.pruebas.gui.mainmenu.action.AddLinksMenuAction;
+import org.moralejo.pruebas.gui.mainmenu.container.FileMenuContainer;
 
 public class MenuItemData {
 	
@@ -54,14 +58,17 @@ public class MenuItemData {
 		return it;
 	}
 
-	private BasicAction createAction() {
-		BasicAction ret = new BasicAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-			}
-		};
-		return null;
+	private CustomizableAppAction createAction()  throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		CustomizableAppAction ret = null;
+//		Class<?> clazz = actionData._getClazz();
+//		Constructor<?> c = clazz.getConstructor(new Class[] {});
+//		ret = (CustomizableAppAction) c.newInstance(new Object[] {});
+		//ret.setMenuItemData(this);
+		//
+		//
+		//ret = (CustomizableAppAction) new FileMenuContainer();
+		//ret = new AddLinksMenuAction();
+		return ret;
 	}
 
 	public boolean isVisible() {
@@ -78,21 +85,24 @@ public class MenuItemData {
 	}
 	
 	public void add(MenuItemData child) {
-		//TODO: SE ESTÁ LLAMANDO 2 VECES CON "menuItemDataDefault" con type y luego con otro que le falta el type y falla al añadir
 		items.add(child);
 	}
 	
 	public JComponent createItem() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException {
-		final BasicAction action = createAction();
+		final CustomizableAppAction action = createAction();
 		JMenuItem ret = new JMenuItem(action);
 		if(StringUtils.isNotEmpty(name)){
 			ret.setText(name);
 		}
-		return null;
+		return ret;
 	}
 
 	public ArrayList<MenuItemData> getItems() {
 		return items;
+	}
+
+	public String getName() {
+		return name;
 	}
 	
 	

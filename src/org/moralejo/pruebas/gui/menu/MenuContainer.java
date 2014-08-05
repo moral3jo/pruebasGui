@@ -21,5 +21,9 @@ public class MenuContainer extends MenuItemData {
         add(new MenuItemData(actionData));
     }
 	
+	public Type getType(){
+		return Type.CONTAINER;
+	}
+	
 
 }
